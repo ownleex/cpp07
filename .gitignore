@@ -58,6 +58,4 @@ settings.json
 *.pdf
 all
 
-base
-serializer
-convert
+whatever
