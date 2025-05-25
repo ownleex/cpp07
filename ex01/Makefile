@@ -6,11 +6,11 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/25 15:30:09 by ayarmaya          #+#    #+#              #
-#    Updated: 2025/05/25 15:42:19 by ayarmaya         ###   ########.fr        #
+#    Updated: 2025/05/25 23:30:11 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			:= whatever
+NAME			:= iter
 CC				:= c++
 CFLAGS			:= -Wall -Wextra -Werror -std=c++98 -MMD -MP
 LDFLAGS			:= -Wall -Wextra -Werror -std=c++98 -MMD -MP
