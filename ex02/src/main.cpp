@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 00:45:58 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/27 18:15:01 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 18:32:06 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main()
     // 3) Test d'accès et modification
     std::cout << "3. Test d'accès et modification" << std::endl;
     for (int i = 0; i < MAX_VAL; i++) {
-        numbers[i] = i * 10;
+        numbers[i] = (i + 1) * 10;
     }
     
     std::cout << "Après modification: ";
@@ -58,12 +58,12 @@ int main()
     
     // Test constructeur de copie
     Array<int> copy1(numbers);
-    std::cout << "Constructeur de copie - taille: " << copy1.size() << std::endl;
+    std::cout << "Constructeur de copie (copy1) - taille: " << copy1.size() << std::endl;
     
     // Test opérateur d'affectation
     Array<int> copy2;
     copy2 = numbers;
-    std::cout << "Opérateur d'affectation - taille: " << copy2.size() << std::endl;
+    std::cout << "Opérateur d'affectation (copy2) - taille: " << copy2.size() << std::endl;
     
     // Vérification que les valeurs sont identiques
     std::cout << "Valeurs identiques ? ";
@@ -78,16 +78,20 @@ int main()
     
     // TEST CRUCIAL: Modification des copies ne doit pas affecter l'original
     std::cout << "Test d'indépendance des copies:" << std::endl;
-    std::cout << "Avant modification - Original[0]: " << numbers[0] 
-              << ", Copy1[0]: " << copy1[0] << ", Copy2[0]: " << copy2[0] << std::endl;
+    std::cout << "Avant modification - Original[0]: " << numbers[0] << ", Copy1[0]: " << copy1[0] << ", Copy2[0]: " << copy2[0] << std::endl;
+    std::cout << "                     Original[1]: " << numbers[1] << ", Copy1[0]: " << copy1[1] << ", Copy2[0]: " << copy2[1] << std::endl;
+    std::cout << "                     Original[2]: " << numbers[2] << ", Copy1[0]: " << copy1[2] << ", Copy2[0]: " << copy2[2] << std::endl;
     
     copy1[0] = 999;
     copy2[0] = 888;
+    copy1[1] = 1999;
+    copy2[1] = 1888;
     
-    std::cout << "Après modification - Original[0]: " << numbers[0] 
-              << ", Copy1[0]: " << copy1[0] << ", Copy2[0]: " << copy2[0] << std::endl;
+    std::cout << "Après modification - Original[0]: " << numbers[0] << ", Copy1[0]: " << copy1[0] << ", Copy2[0]: " << copy2[0] << std::endl;
+    std::cout << "                     Original[1]: " << numbers[1] << ", Copy1[0]: " << copy1[1] << ", Copy2[0]: " << copy2[1] << std::endl;
+    std::cout << "                     Original[2]: " << numbers[2] << ", Copy1[0]: " << copy1[2] << ", Copy2[0]: " << copy2[2] << std::endl;
     
-    if (numbers[0] == 0) { // La valeur originale était 0 (i * 10 avec i = 0)
+    if (numbers[0] == 10) { // La valeur originale était 10 ((i + 1) * 10 avec i = 0)
         std::cout << "✅ Deep copy OK - L'original n'a pas été modifié" << std::endl;
     } else {
         std::cout << "❌ Erreur - L'original a été modifié !" << std::endl;
@@ -114,7 +118,7 @@ int main()
     }
     std::cout << std::endl;
 
-    // 6) Test avec un type complexe
+    // 6) Test avec strings
     std::cout << "6. Test avec des strings" << std::endl;
     Array<std::string> words(3);
     words[0] = "Hello";
