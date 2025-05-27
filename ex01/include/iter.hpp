@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 23:35:53 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/27 19:25:44 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 21:29:18 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void iter(T* array, size_t length, void (*func)(T&)) {
         func(array[i]);
     }
 }
+
 #endif
