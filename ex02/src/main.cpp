@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 00:45:58 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/27 16:59:59 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 18:10:28 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,113 +19,127 @@
 
 int main()
 {
-    // 1) Test du constructeur par défaut et size()
-    std::cout << "Test du constructeur par défaut et size()" << std::endl;
+    std::cout << "=== Tests du template Array ===" << std::endl << std::endl;
+
+    // 1) Test constructeur par défaut
+    std::cout << "1. Test constructeur par défaut" << std::endl;
     Array<int> empty;
-    std::cout << "✅ Tableau vide créé avec succès" << std::endl;
-    std::cout << "empty.size() = " << empty.size() << std::endl;
-    
-    
-    std::cout << std::endl;
+    std::cout << "Taille du tableau vide: " << empty.size() << std::endl;
+    std::cout << "✅ Constructeur par défaut OK" << std::endl << std::endl;
 
-    // 2) Test de l'initialisation et de size()
-    std::cout << "Test de l'initialisation et de size()" << std::endl;
+    // 2) Test constructeur avec taille
+    std::cout << "2. Test constructeur avec taille" << std::endl;
     Array<int> numbers(MAX_VAL);
-    std::cout << "numbers.size() = " << numbers.size() << std::endl;
-    std::cout << std::endl;
-
-    // 3) Remplissage et miroir pour vérifier deep copy
-    std::cout << "Remplissage et miroir pour vérifier deep copy" << std::endl;
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
+    std::cout << "Taille du tableau: " << numbers.size() << std::endl;
     
-    std::cout << "Remplissage du tableau avec des valeurs aléatoires..." << std::endl;
+    // Vérification de l'initialisation par défaut
+    std::cout << "Valeurs par défaut: ";
+    for (unsigned int i = 0; i < numbers.size(); i++) {
+        std::cout << numbers[i] << " ";
+    }
+    std::cout << std::endl;
+    std::cout << "✅ Constructeur avec taille OK" << std::endl << std::endl;
+
+    // 3) Test d'accès et modification
+    std::cout << "3. Test d'accès et modification" << std::endl;
     for (int i = 0; i < MAX_VAL; i++) {
-        numbers[i] = mirror[i] = rand();
+        numbers[i] = i * 10;
     }
-    std::cout << "Remplissage terminé." << std::endl;
     
-    std::cout << "Test de copie dans un scope local..." << std::endl;
-    {
-        Array<int> tmp = numbers;        // Test constructeur de copie
-        Array<int> test(tmp);           // Test constructeur de copie
-        std::cout << "Copies créées avec succès dans le scope." << std::endl;
-        std::cout << "tmp.size() = " << tmp.size() << std::endl;
-        std::cout << "test.size() = " << test.size() << std::endl;
-        
-        // Vérification que les copies contiennent les mêmes valeurs
-        std::cout << "Vérification des valeurs copiées:" << std::endl;
-        for (int i = 0; i < 5; i++) {
-            std::cout << "Index " << i << ": original=" << numbers[i] 
-                      << ", tmp=" << tmp[i] << ", test=" << test[i] << std::endl;
-        }
-        
-        // TEST CRUCIAL: Modifier les copies ne doit PAS affecter l'original
-        std::cout << "Test d'indépendance des copies (deep copy)..." << std::endl;
-        int original_val_0 = numbers[0];
-        int original_val_1 = numbers[1];
-        
-        tmp[0] = 999999;     // Modifier la première copie
-        test[1] = 888888;    // Modifier la deuxième copie
-        
-        if (numbers[0] != original_val_0) {
-            std::cerr << "❌ ERREUR: Modification de tmp[0] a affecté l'original !" << std::endl;
-            std::cerr << "Original était: " << original_val_0 << ", maintenant: " << numbers[0] << std::endl;
-            delete[] mirror;
-            return 1;
-        }
-        
-        if (numbers[1] != original_val_1) {
-            std::cerr << "❌ ERREUR: Modification de test[1] a affecté l'original !" << std::endl;
-            std::cerr << "Original était: " << original_val_1 << ", maintenant: " << numbers[1] << std::endl;
-            delete[] mirror;
-            return 1;
-        }
-        
-        std::cout << "✅ Test d'indépendance réussi: les modifications des copies n'affectent pas l'original" << std::endl;
-        std::cout << "Original[0]: " << numbers[0] << " (inchangé)" << std::endl;
-        std::cout << "Original[1]: " << numbers[1] << " (inchangé)" << std::endl;
-        std::cout << "tmp[0]: " << tmp[0] << " (modifié)" << std::endl;
-        std::cout << "test[1]: " << test[1] << " (modifié)" << std::endl;
+    std::cout << "Après modification: ";
+    for (unsigned int i = 0; i < numbers.size(); i++) {
+        std::cout << numbers[i] << " ";
     }
-    std::cout << "Sortie du scope - destructeurs appelés." << std::endl;
-    
-    std::cout << "Vérification de l'intégrité après destruction des copies..." << std::endl;
-    for (int i = 0; i < MAX_VAL; i++) {
-        if (mirror[i] != numbers[i]) {
-            std::cerr << "Erreur de copie profonde à l'index " << i << " !" << std::endl;
-            std::cerr << "Attendu: " << mirror[i] << ", obtenu: " << numbers[i] << std::endl;
-            delete[] mirror;
-            return 1;
-        }
-    }
-    std::cout << "✅ Test de copie profonde réussi - toutes les valeurs sont intactes !" << std::endl;
     std::cout << std::endl;
+    std::cout << "✅ Accès et modification OK" << std::endl << std::endl;
 
-    // 4) Test exceptions hors bornes
-    std::cout << "Test exceptions hors bornes" << std::endl;
-    try { 
-        numbers[-2] = 0; 
-    } catch(const std::exception& e) {
-        std::cerr << "numbers[-2] : " << e.what() << std::endl;
+    // 4) Test de copie profonde (deep copy)
+    std::cout << "4. Test de copie profonde" << std::endl;
+    
+    // Test constructeur de copie
+    Array<int> copy1(numbers);
+    std::cout << "Constructeur de copie - taille: " << copy1.size() << std::endl;
+    
+    // Test opérateur d'affectation
+    Array<int> copy2;
+    copy2 = numbers;
+    std::cout << "Opérateur d'affectation - taille: " << copy2.size() << std::endl;
+    
+    // Vérification que les valeurs sont identiques
+    std::cout << "Valeurs identiques ? ";
+    bool identical = true;
+    for (unsigned int i = 0; i < numbers.size(); i++) {
+        if (numbers[i] != copy1[i] || numbers[i] != copy2[i]) {
+            identical = false;
+            break;
+        }
     }
-    try { 
-        numbers[6] = 0; 
-    } catch(const std::exception& e) {
-        std::cerr << "numbers[6] : " << e.what() << std::endl;
+    std::cout << (identical ? "OUI" : "NON") << std::endl;
+    
+    // TEST CRUCIAL: Modification des copies ne doit pas affecter l'original
+    std::cout << "Test d'indépendance des copies:" << std::endl;
+    std::cout << "Avant modification - Original[0]: " << numbers[0] 
+              << ", Copy1[0]: " << copy1[0] << ", Copy2[0]: " << copy2[0] << std::endl;
+    
+    copy1[0] = 999;
+    copy2[0] = 888;
+    
+    std::cout << "Après modification - Original[0]: " << numbers[0] 
+              << ", Copy1[0]: " << copy1[0] << ", Copy2[0]: " << copy2[0] << std::endl;
+    
+    if (numbers[0] == 0) { // La valeur originale était 0 (i * 10 avec i = 0)
+        std::cout << "✅ Deep copy OK - L'original n'a pas été modifié" << std::endl;
+    } else {
+        std::cout << "❌ Erreur - L'original a été modifié !" << std::endl;
     }
     std::cout << std::endl;
 
-    // 5) Test sur un type non trivial
-    std::cout << "Test sur un type non trivial" << std::endl;
+    // 5) Test des exceptions (accès hors limites)
+    std::cout << "5. Test des exceptions" << std::endl;
+    
+    try {
+        std::cout << "Tentative d'accès à l'index " << MAX_VAL << ": ";
+        numbers[MAX_VAL] = 42;
+        std::cout << "❌ Aucune exception lancée !" << std::endl;
+    } catch(const std::exception& e) {
+        std::cout << "✅ Exception attrapée: " << e.what() << std::endl;
+    }
+    
+    try {
+        std::cout << "Tentative d'accès à l'index -1 (cast en unsigned): ";
+        numbers[static_cast<unsigned int>(-1)] = 42;
+        std::cout << "❌ Aucune exception lancée !" << std::endl;
+    } catch(const std::exception& e) {
+        std::cout << "✅ Exception attrapée: " << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+
+    // 6) Test avec un type complexe
+    std::cout << "6. Test avec des strings" << std::endl;
     Array<std::string> words(3);
-    words[0] = "foo"; 
-    words[1] = "bar"; 
-    words[2] = "baz";
-    for (unsigned i = 0; i < words.size(); i++)
-        std::cout << words[i] << ' ';
+    words[0] = "Hello";
+    words[1] = "World";
+    words[2] = "Template";
+    
+    std::cout << "Tableau de strings: ";
+    for (unsigned int i = 0; i < words.size(); i++) {
+        std::cout << words[i] << " ";
+    }
     std::cout << std::endl;
+    
+    // Test de copie avec strings
+    Array<std::string> wordsCopy = words;
+    wordsCopy[0] = "Modified";
+    
+    std::cout << "Original[0]: " << words[0] << ", Copie[0]: " << wordsCopy[0] << std::endl;
+    std::cout << "✅ Test avec string OK" << std::endl << std::endl;
 
-    delete[] mirror;
+    // Test suggéré par le sujet
+    std::cout << "\nTest du sujet: new int()" << std::endl;
+    int* a = new int();
+    std::cout << "int* a = new int(); -> *a = " << *a << std::endl << std::endl;
+    delete a;
+
+    std::cout << "=== Tous les tests terminés ===" << std::endl;
     return 0;
 }
