@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 00:45:58 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/27 18:10:28 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 18:15:01 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ int main()
     std::cout << "5. Test des exceptions" << std::endl;
     
     try {
-        std::cout << "Tentative d'accès à l'index " << MAX_VAL << ": ";
-        numbers[MAX_VAL] = 42;
+        std::cout << "Tentative d'accès à l'index " << "6" << ": ";
+        numbers[6] = 42;
         std::cout << "❌ Aucune exception lancée !" << std::endl;
     } catch(const std::exception& e) {
         std::cout << "✅ Exception attrapée: " << e.what() << std::endl;
