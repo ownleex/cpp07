@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 23:35:12 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/26 00:07:01 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 02:55:59 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ int main(void) {
     
     ::iter(charArray, charLength, toUpper);
     std::cout << "En majuscules: ";
+    ::iter(charArray, charLength, print<char>);
+    std::cout << std::endl << "Après incrémentation: ";
+    ::iter(charArray, charLength, increment<char>);
     ::iter(charArray, charLength, print<char>);
     std::cout << std::endl << std::endl;
     
