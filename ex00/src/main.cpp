@@ -6,12 +6,10 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:02:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/25 16:29:35 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 19:26:08 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
 #include "whatever.hpp"
 
 int main(void) {

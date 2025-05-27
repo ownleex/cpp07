@@ -6,12 +6,10 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 23:35:12 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/27 02:55:59 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 19:30:31 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
 #include "iter.hpp"
 
 template <typename T>
@@ -31,6 +29,7 @@ void toUpper(char& c) {
 }
 
 int main(void) {
+
     // Test avec des entiers
     std::cout << "Test avec des entiers:" << std::endl;
     int intArray[] = {1, 2, 3, 4, 5};
@@ -45,6 +44,8 @@ int main(void) {
     ::iter(intArray, intLength, print<int>);
     std::cout << std::endl << std::endl;
     
+
+
     // Test avec des doubles
     std::cout << "Test avec des doubles:" << std::endl;
     double doubleArray[] = {1.1, 2.2, 3.3, 4.4, 5.5};
@@ -58,7 +59,25 @@ int main(void) {
     std::cout << "Après incrémentation: ";
     ::iter(doubleArray, doubleLength, print<double>);
     std::cout << std::endl << std::endl;
+
+
+
+    // Test avec des floats
+    std::cout << "Test avec des floats:" << std::endl;
+    float floatArray[] = {1.1f, 2.2f, 3.3f, 4.4f, 5.5f};
+    int floatLenght = 5;
     
+    std::cout << "Tableau original: ";
+    ::iter(floatArray, floatLenght, print<float>);
+    std::cout << std::endl;
+    
+    ::iter(floatArray, floatLenght, increment<float>);
+    std::cout << "Après incrémentation: ";
+    ::iter(floatArray, floatLenght, print<float>);
+    std::cout << std::endl << std::endl;
+    
+
+
     // Test avec des caractères
     std::cout << "Test avec des caractères:" << std::endl;
     char charArray[] = {'h', 'e', 'l', 'l', 'o'};
@@ -76,9 +95,11 @@ int main(void) {
     ::iter(charArray, charLength, print<char>);
     std::cout << std::endl << std::endl;
     
+
+    
     // Test avec des strings
-    std::cout << "Test avec des strings:" << std::endl;
-    std::string stringArray[] = {"hello", "world", "template", "test"};
+    std::cout << "Test avec des strings (this - is - hello - world):" << std::endl;
+    std::string stringArray[] = {"this", "is", "hello", "world"};
     int stringLength = 4;
     
     std::cout << "Tableau de strings: ";

@@ -6,12 +6,15 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 14:02:31 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/25 15:29:11 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 19:26:13 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WHATEVER_HPP
 #define WHATEVER_HPP
+
+#include <iostream>
+#include <string>
 
 template <typename T>
 void swap(T& a, T& b) {

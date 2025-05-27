@@ -6,13 +6,10 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 00:45:58 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/27 19:13:08 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 19:26:40 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <stdlib.h>
-#include <time.h>
 #include "Array.hpp"
 
 #define MAX_VAL 5
