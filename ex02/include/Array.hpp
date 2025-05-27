@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 00:29:04 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/26 00:44:22 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 18:59:05 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
     Array();
     
     // Constructeur avec taille
-    Array(unsigned int n);
+    Array(unsigned int size);
     
     // Constructeur de copie
     Array(const Array& other);

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 00:45:58 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/27 18:32:06 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 19:13:08 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int main()
     std::cout << "Taille du tableau vide: " << empty.size() << std::endl;
     std::cout << "✅ Constructeur par défaut OK" << std::endl << std::endl;
 
+
+    
     // 2) Test constructeur avec taille
     std::cout << "2. Test constructeur avec taille" << std::endl;
     Array<int> numbers(MAX_VAL);
@@ -40,6 +42,8 @@ int main()
     std::cout << std::endl;
     std::cout << "✅ Constructeur avec taille OK" << std::endl << std::endl;
 
+
+
     // 3) Test d'accès et modification
     std::cout << "3. Test d'accès et modification" << std::endl;
     for (int i = 0; i < MAX_VAL; i++) {
@@ -52,6 +56,8 @@ int main()
     }
     std::cout << std::endl;
     std::cout << "✅ Accès et modification OK" << std::endl << std::endl;
+
+
 
     // 4) Test de copie profonde (deep copy)
     std::cout << "4. Test de copie profonde" << std::endl;
@@ -78,18 +84,18 @@ int main()
     
     // TEST CRUCIAL: Modification des copies ne doit pas affecter l'original
     std::cout << "Test d'indépendance des copies:" << std::endl;
-    std::cout << "Avant modification - Original[0]: " << numbers[0] << ", Copy1[0]: " << copy1[0] << ", Copy2[0]: " << copy2[0] << std::endl;
-    std::cout << "                     Original[1]: " << numbers[1] << ", Copy1[0]: " << copy1[1] << ", Copy2[0]: " << copy2[1] << std::endl;
-    std::cout << "                     Original[2]: " << numbers[2] << ", Copy1[0]: " << copy1[2] << ", Copy2[0]: " << copy2[2] << std::endl;
+    std::cout << "Avant modification - Original[0]: " << numbers[0] << "   Copy1[0]: " << copy1[0] << "    Copy2[0]: " << copy2[0] << std::endl;
+    std::cout << "                     Original[1]: " << numbers[1] << "   Copy1[0]: " << copy1[1] << "    Copy2[0]: " << copy2[1] << std::endl;
+    std::cout << "                     Original[2]: " << numbers[2] << "   Copy1[0]: " << copy1[2] << "    Copy2[0]: " << copy2[2] << std::endl;
     
     copy1[0] = 999;
     copy2[0] = 888;
-    copy1[1] = 1999;
-    copy2[1] = 1888;
+    copy1[1] = 9999;
+    copy2[1] = 8888;
     
-    std::cout << "Après modification - Original[0]: " << numbers[0] << ", Copy1[0]: " << copy1[0] << ", Copy2[0]: " << copy2[0] << std::endl;
-    std::cout << "                     Original[1]: " << numbers[1] << ", Copy1[0]: " << copy1[1] << ", Copy2[0]: " << copy2[1] << std::endl;
-    std::cout << "                     Original[2]: " << numbers[2] << ", Copy1[0]: " << copy1[2] << ", Copy2[0]: " << copy2[2] << std::endl;
+    std::cout << "Après modification - Original[0]: " << numbers[0] << "   Copy1[0]: " << copy1[0] << "   Copy2[0]: " << copy2[0] << std::endl;
+    std::cout << "                     Original[1]: " << numbers[1] << "   Copy1[0]: " << copy1[1] << "  Copy2[0]: " << copy2[1] << std::endl;
+    std::cout << "                     Original[2]: " << numbers[2] << "   Copy1[0]: " << copy1[2] << "    Copy2[0]: " << copy2[2] << std::endl;
     
     if (numbers[0] == 10) { // La valeur originale était 10 ((i + 1) * 10 avec i = 0)
         std::cout << "✅ Deep copy OK - L'original n'a pas été modifié" << std::endl;
@@ -97,6 +103,8 @@ int main()
         std::cout << "❌ Erreur - L'original a été modifié !" << std::endl;
     }
     std::cout << std::endl;
+
+
 
     // 5) Test des exceptions (accès hors limites)
     std::cout << "5. Test des exceptions" << std::endl;
@@ -118,6 +126,8 @@ int main()
     }
     std::cout << std::endl;
 
+
+
     // 6) Test avec strings
     std::cout << "6. Test avec des strings" << std::endl;
     Array<std::string> words(3);
@@ -138,12 +148,8 @@ int main()
     std::cout << "Original[0]: " << words[0] << ", Copie[0]: " << wordsCopy[0] << std::endl;
     std::cout << "✅ Test avec string OK" << std::endl << std::endl;
 
-    // Test suggéré par le sujet
-    std::cout << "\nTest du sujet: new int()" << std::endl;
-    int* a = new int();
-    std::cout << "int* a = new int(); -> *a = " << *a << std::endl << std::endl;
-    delete a;
+    
 
-    std::cout << "=== Tous les tests terminés ===" << std::endl;
+    std::cout << "✅ === Tous les tests terminés === ✅" << std::endl;
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 00:34:22 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/27 18:03:16 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/27 19:07:48 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ Array<T>::Array() : _data(NULL), _size(0) {}
 
 // Constructeur avec taille
 template <typename T>
-Array<T>::Array(unsigned int n) : _data(new T[n]()), _size(n) {}
+Array<T>::Array(unsigned int size) : _size(size) {
+    this->_data = new T[size];
+}
 
 // Constructeur de copie
 template <typename T>
