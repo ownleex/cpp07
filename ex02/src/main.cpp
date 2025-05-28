@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 00:45:58 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/27 19:26:40 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/28 02:34:26 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ int main()
 
 
     // 6) Test avec strings
-    std::cout << "6. Test avec des strings" << std::endl;
+    std::cout << "6. Test avec des strings (type complexe)" << std::endl;
     Array<std::string> words(3);
     words[0] = "Hello";
     words[1] = "World";
