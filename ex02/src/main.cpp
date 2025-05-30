@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 00:45:58 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/28 02:34:26 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/30 13:04:37 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int main()
             break;
         }
     }
-    std::cout << (identical ? "OUI" : "NON") << std::endl;
+    std::cout << (identical ? "✅ OUI" : "❌ NON") << std::endl;
     
     // TEST CRUCIAL: Modification des copies ne doit pas affecter l'original
     std::cout << "Test d'indépendance des copies:" << std::endl;
